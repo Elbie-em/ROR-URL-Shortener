@@ -3,6 +3,9 @@ require 'spec_helper'
 require 'capybara/rspec'
 require 'shoulda/matchers'
 require 'factory_bot_rails'
+require 'database_cleaner'
+require 'devise'
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
@@ -65,6 +68,20 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.before(:each) { Faker::UniqueGenerator.clear }
 end
 
 Shoulda::Matchers.configure do |config|
