@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>UrlShortener</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>URL Shortener</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" %>
+  <%= stylesheet_link_tag "styles" %>
+</head>
+<body>
+  <header>
+    <nav class="d-flex justify-content-between">
+      <a href="#">URL Shortener</a>
+      <div>
+        <a href="#" class="mr-3">Sign In</a>
+        <a href="#">Sign Up</a>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
+   <footer class="bg-light text-primary text-lg-start">
+        <p class="text-center">&copy; 2023 URL Shortener. All rights reserved.</p>
+   </footer>
+</body>
 </html>

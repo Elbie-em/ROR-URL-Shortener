@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center">URL Shortener</h1>
+      <p class="text-center">Shorten your long URLs easily and share them with others.</p>
+
+      <div class="card text-center">
+        <div class="card-body" data-controller="short-url">
+          <%= form_with url: urls_path, method: :post, remote: true, local: false, html: { id: "url_form", data: { short_url_target: "form" } } do |form| %>
+            <div class="form-group">
+              <%= form.label :original_url, "Enter URL to be shortened" %>
+              <%= form.url_field :original_url, class: "form-control", placeholder: "https://example.com", required: true, name: "url[original_url]" %>
+            </div>
+            <br>
+            <div class="form-group">
+              <%= form.submit "Shorten", class: "btn btn-primary btn-block" %>
+            </div>
+          <% end %>
+
+          <div id="short_url_result" class="mt-4" style="display:none;" data-short-url-target="result">
+            <h2 class="text-center">Your Short URL</h2>
+            <div class="d-flex justify-content-center">
+              <div class="alert alert-success">
+                <a href="#" id="short_url" target="_blank" data-short-url-target="shortUrl"></a>
+              </div>
+              &nbsp;
+              <button class="btn btn-secondary ml-2" data-action="short-url#copyShortUrl" data-short-url-target="copyButton">
+                <i class="far fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -84,6 +84,9 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    cssbundling-rails (1.1.2)
+      railties (>= 6.0.0)
+    database_cleaner (1.8.5)
     date (3.3.3)
     debug (1.7.2)
       irb (>= 1.5.0)
@@ -101,6 +104,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.13.0)
@@ -239,9 +244,12 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara (~> 3.35)
+  cssbundling-rails (~> 1.1)
+  database_cleaner (~> 1.8.5)
   debug
   devise
   factory_bot_rails (~> 6.2)
+  faker
   importmap-rails
   jbuilder
   pg (~> 1.1)

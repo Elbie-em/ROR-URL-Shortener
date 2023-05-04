@@ -58,6 +58,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'faker'
 end
 
 group :development do
@@ -70,3 +71,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+group :test do
+  gem 'database_cleaner', '~> 1.8.5'
+end
+
+gem "cssbundling-rails", "~> 1.1"
