@@ -1,8 +1,6 @@
 FactoryBot.define do
   factory :url do
-    original_url { "MyString" }
-    short_url { "MyString" }
-    visit_count { 1 }
-    user { nil }
+    original_url { Faker::Internet.unique.url(scheme: 'https') }
+    user
   end
 end
